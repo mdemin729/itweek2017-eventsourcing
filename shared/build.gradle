@@ -1,0 +1,21 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.0.RELEASE" }
+
+ext { springBootVersion = '1.5.2.RELEASE' }
+
+jar {
+    baseName = 'eventsourcing-shared'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('com.fasterxml.jackson.core:jackson-annotations')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}

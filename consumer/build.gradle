@@ -1,0 +1,16 @@
+buildscript {
+	ext { springBootVersion = '1.5.2.RELEASE' }
+	repositories { mavenCentral() }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+}
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+	compile project(':shared')
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.kafka:spring-kafka')
+	compile('com.fasterxml.jackson.core:jackson-databind')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
